@@ -7,6 +7,6 @@ namespace Clase_5
 		public AlumnoMuyEstudioso(string nombre, int dni, int legajo, int promedio): base(nombre, dni, legajo, promedio){
 		}
 
-		public int respoderPregunta(int pregunta) { return (pregunta % 3); }
+		public int respoderPregunta(int pregunta) { return pregunta % 3; }
     }
 }

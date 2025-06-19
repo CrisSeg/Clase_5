@@ -3,9 +3,11 @@ using System.Collections.Generic;
 
 namespace Clase_5
 {
-	public class Cola : Coleccionable, Iterable
+	public class Cola : Coleccionable, Iterable, Ordenable
 	{
 		private List<Comparable> ele;
+		private OrdenEnAula1 ordenInicio, ordenAulaLlena;
+		private OrdenEnAula2 ordenLlegaAlumno;
 		public Cola()
 		{
 			this.ele = new List<Comparable>();
@@ -13,7 +15,21 @@ namespace Clase_5
 		
 		public void encolar(Comparable c){
 			this.ele.Add(c);
-		}
+
+            if (ele.Count == 1 && ordenInicio != null)
+            {
+				ordenInicio.ejecutar();   
+            }
+            if (ordenLlegaAlumno != null)
+            {
+				ordenLlegaAlumno.ejecutar(c);
+            }
+            if (ele.Count == 40 && ordenAulaLlena != null)
+            {
+				ordenAulaLlena.ejecutar();
+            }
+
+        }
 		
 		public Comparable desEncolar(){
 			Comparable aux = this.ele[0];
@@ -71,5 +87,20 @@ namespace Clase_5
 		public Iterador crearIterador(){
 			return new iteradorDeCola(this);
 		}
-	}
+
+		//Implemento interface de ordenable
+		public void setOrdenInicio(OrdenEnAula1 a)
+		{
+			ordenInicio = a;
+		}
+        
+		public void setOrdenLlegaAlumno(OrdenEnAula2 a)
+		{
+			ordenLlegaAlumno = a;
+		}
+        public void setOrdenAulaLlena(OrdenEnAula1 a)
+		{
+			ordenAulaLlena = a;
+		}
+    }
 }

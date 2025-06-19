@@ -3,9 +3,12 @@ using System.Collections.Generic;
 
 namespace Clase_5
 {
-	public class Pila : Coleccionable, Iterable
+	public class Pila : Coleccionable, Iterable, Ordenable
 	{
+
 		List<Comparable> p;
+		private OrdenEnAula1 ordenInicio, ordenAulaLlena;
+		private OrdenEnAula2 ordenLlegaAlumno;
 		public Pila()
 		{
 			this.p = new List<Comparable>();
@@ -13,7 +16,21 @@ namespace Clase_5
 		
 		public void apilar(Comparable c){
 			this.p.Add(c);
-		}
+
+            if (p.Count == 1 && ordenInicio != null)
+			{
+				ordenInicio.ejecutar();
+			}
+            if (ordenLlegaAlumno != null)
+            {
+                ordenLlegaAlumno.ejecutar(c);
+            }
+            if (p.Count == 40 && ordenAulaLlena != null)
+            {
+                ordenAulaLlena.ejecutar();
+            }
+
+        }
 		
 		public Comparable desApilar(){
 			Comparable aux = this.p[p.Count-1];
@@ -67,5 +84,20 @@ namespace Clase_5
 		public Iterador crearIterador(){
 			return new iteradorDePila(this);
 		}
-	}
+
+        //Implementamos la interface ordenable
+        public void setOrdenInicio(OrdenEnAula1 a)
+		{
+			ordenInicio = a;
+		}
+        public void setOrdenLlegaAlumno(OrdenEnAula2 a)
+		{
+			ordenLlegaAlumno = a;
+		}
+        public void setOrdenAulaLlena(OrdenEnAula1 a)
+		{
+			ordenAulaLlena = a;
+		}
+
+    }
 }

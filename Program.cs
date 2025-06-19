@@ -8,32 +8,21 @@ namespace Clase_5
 	{
 		public static void Main(string[] args)
 		{
-			Teacher teacher = new Teacher();
-			Student stu;
-			Comparable c;
-			
-			for (int i = 0; i < 20; i++) {
-				if (i < 10) {
-					//c = FabricaDeComparables.crearAleatorio(5);
+			Pila pila = new Pila();
+			Aula aula = new Aula();
 
-					c = new AlumnoProxy("Juan", 4783539, 1999, 4, 5);
-					stu = new AlumnoAdapter((IAlumno)c);
-				}
-				else{
-                    //c = FabricaDeComparables.crearAleatorio(6);
-                    c = new AlumnoProxy("Lucas", 865562, 167, 10, 6);
-                    stu = new AlumnoAdapter((IAlumno)c);
-				}
-				teacher.goToClass(stu);
-			}
-			
-			teacher.teachingAClass();
-						
+			pila.setOrdenInicio(new OrdenInicio(aula));
+			pila.setOrdenLlegaAlumno(new OrdenLlegaAlumno(aula));
+			pila.setOrdenAulaLlena(new OrdenAulaLlena(aula));
+
+			Llenar(pila, 5);
+			Llenar(pila, 6);
+
 			Console.Write("Press any key to continue . . . ");
 			Console.ReadKey(true);
 		}
 		
-			public static void llenar(Coleccionable c){
+		public static void llenar(Coleccionable c){
 			Random rn = new Random();
 			
 			for (int i = 0; i < 20; i++) {
@@ -65,7 +54,7 @@ namespace Clase_5
 		}
 		
 		//Clase 3 Ejercicio 6
-		public static void llenar(Coleccionable col, int op){
+		public static void Llenar(Coleccionable col, int op){
 			for (int i = 0; i < 20; i++) {
 				Comparable c = FabricaDeComparables.crearAleatorio(op);
 				col.agregar(c);
@@ -90,9 +79,6 @@ namespace Clase_5
 				p.hablarALaClase();
 				p.escribirEnElPizarron();
 			}
-		}
-		
-		//Practica 4 Ejrecicio 4
-		
+		}		
 	}
 }

@@ -65,9 +65,9 @@ namespace Clase_5
             this.promedio = p;
         }
 		
-		public void setCalificacion(int c){
-			this.calificacion = c;
-		}
+		public void setCalificacion(int c) { 
+            this.aReal.setCalificacion(c);
+        }
 		
 		public int getCalificacion(){
 			return this.calificacion;
@@ -78,82 +78,28 @@ namespace Clase_5
 
         public bool sosIgual(Comparable c)
         {
-            if (this.aReal == null)
-            {
-                this.aReal = (IAlumno)FabricaDeComparables.crearAleatorio(this.opcion);
-                this.aReal.setNombre(this.nombre);
-                this.aReal.setDni(this.dni);
-                this.aReal.setLegajo(this.legajo);
-                this.aReal.setPromedio(this.promedio);
-            }
-
-			return this.aReal.sosIgual(c);
+            return this.aReal.sosIgual(c);
         }
 
         public bool sosMenor(Comparable c)
-        {
-            if (this.aReal == null)
-            {
-                this.aReal = (IAlumno)FabricaDeComparables.crearAleatorio(this.opcion);
-                this.aReal.setNombre(this.nombre);
-                this.aReal.setDni(this.dni);
-                this.aReal.setLegajo(this.legajo);
-                this.aReal.setPromedio(this.promedio);
-            }
-
+        { 
             return this.aReal.sosMenor(c);
         }
 
         public bool sosMayor(Comparable c)
         {
-            if (this.aReal == null)
-            {
-                this.aReal = (IAlumno)FabricaDeComparables.crearAleatorio(this.opcion);
-                this.aReal.setNombre(this.nombre);
-                this.aReal.setDni(this.dni);
-                this.aReal.setLegajo(this.legajo);
-                this.aReal.setPromedio(this.promedio);
-            }
-
             return this.aReal.sosMayor(c);
         }
         public void prestandoAtencion() {
-            if (this.aReal == null)
-            {
-				this.aReal = (IAlumno)FabricaDeComparables.crearAleatorio(this.opcion);
-				this.aReal.setNombre(this.nombre);
-				this.aReal.setDni(this.dni);
-				this.aReal.setLegajo(this.legajo);
-				this.aReal.setPromedio(this.promedio);
-            }
-
-			this.aReal.prestandoAtencion();
+            this.aReal.prestandoAtencion();
         }
 		public void distraerse()
 		{
-            if (this.aReal == null)
-            {
-                this.aReal = (IAlumno)FabricaDeComparables.crearAleatorio(this.opcion);
-                this.aReal.setNombre(this.nombre);
-                this.aReal.setDni(this.dni);
-                this.aReal.setLegajo(this.legajo);
-                this.aReal.setPromedio(this.promedio);
-            }
-
-			this.aReal.distraerse();
+            this.aReal.distraerse();
         }
 		public void actualizar(Observado o)
 		{
-            if (this.aReal == null)
-            {
-                this.aReal = (IAlumno)FabricaDeComparables.crearAleatorio(this.opcion);
-                this.aReal.setNombre(this.nombre);
-                this.aReal.setDni(this.dni);
-                this.aReal.setLegajo(this.legajo);
-                this.aReal.setPromedio(this.promedio);
-            }
-
-			this.aReal.actualizar(o);
+            this.aReal.actualizar(o);
         }
 		public int responderPregunta(int pregunta)
 		{
@@ -169,29 +115,11 @@ namespace Clase_5
 			return this.aReal.responderPregunta(pregunta);
         }
 		public string mostrarCalificacion() {
-            if (this.aReal == null)
-            {
-                this.aReal = (IAlumno)FabricaDeComparables.crearAleatorio(this.opcion);
-                this.aReal.setNombre(this.nombre);
-                this.aReal.setDni(this.dni);
-                this.aReal.setLegajo(this.legajo);
-                this.aReal.setPromedio(this.promedio);
-            }
-
-			return this.aReal.mostrarCalificacion();
+            return this.aReal.mostrarCalificacion();
         }
 
         public string toString()
         {
-            if (this.aReal == null)
-            {
-                this.aReal = (IAlumno)FabricaDeComparables.crearAleatorio(this.opcion);
-                this.aReal.setNombre(this.nombre);
-                this.aReal.setDni(this.dni);
-                this.aReal.setLegajo(this.legajo);
-                this.aReal.setPromedio(this.promedio);
-            }
-
             return this.aReal.toString();
         }
 	}
